@@ -7,7 +7,7 @@ Permitirá consultas avanzadas que proporcionen información útil para la geti�
 
 ## Diagrama de clases de diseño
 
-![Diagrama de Diseño MVP](https://git.institutomilitar.com/Fluqueta/proyeco_biblioteca_emad/-/wikis/EsquemaProyecto)
+![Diagrama de Diseño MVP](https://git.institutomilitar.com/Fluqueta/proyecto_biblioteca_emad/-/wikis/uploads/c01c4f1c1b3c39e582dc8dabf97ba8dc/EsquemaBiblioteca_EMAD.jpg)
 
 
 
@@ -22,4 +22,4 @@ Permitirá consultas avanzadas que proporcionen información útil para la geti�
 ## Interfaz de usuario
 
 Figura 1:  
-![Figura 1](https://git.institutomilitar.com/Fluqueta/proyeco_biblioteca_emad/-/wikis/InterfaceProyecto)
+![Figura 1](https://git.institutomilitar.com/Fluqueta/proyecto_biblioteca_emad/-/wikis/uploads/969f7ee195a6fdef006c892c585eb628/Interfaces_Biblioteca.jpg)
