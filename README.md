@@ -7,8 +7,7 @@ Permitirá consultas avanzadas que proporcionen información útil para la geti�
 
 ## Diagrama de clases de diseño
 
-![Diagrama_de_Diseño](https://git.institutomilitar.com/Fluqueta/proyecto_biblioteca_emad/-/wikis/uploads/a161639bd4128b385a0fd6f16930fbe5/EsquemaBiblioteca_EMAD.jpg){width=100 height=100}
-
+![Diagrama_de_Diseño](https://git.institutomilitar.com/Fluqueta/proyecto_biblioteca_emad/-/wikis/uploads/a161639bd4128b385a0fd6f16930fbe5/EsquemaBiblioteca_EMAD.jpg)
 
 
 **Cumplimiento de requisitos**
@@ -22,4 +21,4 @@ Permitirá consultas avanzadas que proporcionen información útil para la geti�
 ## Interfaz de usuario
 
 Figura 1:  
-![Figura_1](https://git.institutomilitar.com/Fluqueta/proyecto_biblioteca_emad/-/wikis/uploads/969f7ee195a6fdef006c892c585eb628/Interfaces_Biblioteca.jpg){width=100 height=100}
+![Figura_1](https://git.institutomilitar.com/Fluqueta/proyecto_biblioteca_emad/-/wikis/uploads/969f7ee195a6fdef006c892c585eb628/Interfaces_Biblioteca.jpg)
