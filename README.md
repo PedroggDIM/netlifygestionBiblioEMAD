@@ -1,13 +1,13 @@
 # BIBLIOTECA EMAD
 
 ## Descripción
-El uso de la bibliotec del EMAD es intensivo en algunos documentos, la correcta organización y adquisición de nuevos documentos ncesita una adecuada obtención de datos de uso.
-Actualmente ese control se hace "a mano"mediante fichas de prestamo y se desea que ese proceso se automatice con el objetivo de obtener la información necesaria para conseguir el objetivo de optimizar la disposición de los ejemplares y la adquisición de nuevos en funcióin de la demanda.
+El uso de la bibliotec del EMAD es intensivo en algunos documentos, la correcta organización y adquisición de nuevos documentos necesita una adecuada obtención de datos de uso.
+Actualmente ese control se hace "a mano", mediante fichas de prestamo y se desea automatizar ese proceso, con el objetivo de obtener la información necesaria para conseguir optimizar la disposición de los ejemplares y la adquisición de nuevos en funcióin de la demanda.
 Para ello la aplicación permitirá:
 1. Gestionar el préstamo y devolución de de los doumentos. 
 1. Consulta de los usuarios que han tenido acceso a un documento.
-1. Consulta de los docuemntos prestados a un usuario.
-1. Obtener los documentos más utilizados entre dos fechas determinadas con le objetivo de adquirir nuevas copias.
+1. Consulta de los docuementos prestados a un usuario.
+1. Obtener los documentos más utilizados entre dos fechas determinadas con le objeto de adquirir nuevas copias.
 1. Se mostrarán los préstamos de un usuario y los de cada documento indicando los documentos que no se hayan utilizado.
 
 Además se espera que la aplicación permita consultas avanzadas que proporcionen información útil para la getión de la biblioteca.
@@ -18,10 +18,10 @@ Además se espera que la aplicación permita consultas avanzadas que proporcione
 
 
 **Cumplimiento de requisitos**
-1. **Herencia**: Se realizará sobre `Documento` y sus subtipos: `Escrito`, `Audiovisual.
+1. **Herencia**: Se realizará sobre `Documento` y sus subtipos: `Escrito`, `Audiovisual`.
 2. **Relación One-To-Many**: Relación entre `Prestamo` y `Documento`.`Un sólo préstamo puede incluir varios documentos.
 3. **Método personalizado**: Obtener los documentos más utilizados entre dos fechas determinadas con le objetivo de adquirir nuevas copias.
-4. **Listado**: Se mostrarán los préstamos de un usuario y los de cada documento indicando los documentos que no se hayan utilizado.
+4. **Listado**: Se mostrarán los préstamos de un usuario y los de cada documento indicando además los documentos que no se hayan utilizado.
 5. **CRUD**: Se usarán los controles adecuados para hacer el CRUD. Se usará los siguientes formularios.
 
 * Formulario de préstamo (figura 1).
