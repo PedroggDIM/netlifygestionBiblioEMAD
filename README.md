@@ -39,5 +39,5 @@ Además se espera que la aplicación permita consultas avanzadas que proporcione
 
 ## Interfaz de usuario
   
-![Figura_1](https://git.institutomilitar.com/Fluqueta/proyecto_biblioteca_emad/-/wikis/Interfaces-del-Proyecto)
+![Enlace a la página de Interfaces](https://git.institutomilitar.com/Fluqueta/proyecto_biblioteca_emad/-/wikis/Interfaces-del-Proyecto)
 
