@@ -1,4 +1,4 @@
-# BIBLIOTECA EMAD
+# BiblioEMAD
 
 ## Descripción
 El uso de la biblioteca del EMAD es intensivo en algunos documentos, la correcta organización y adquisición de nuevos documentos necesita una adecuada obtención de datos de uso.
