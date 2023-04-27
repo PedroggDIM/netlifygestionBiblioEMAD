@@ -76,21 +76,30 @@ export default {
 </div>   
   </div>
 
-  
-
-<div class="row">
-  <div class="col-md-12">
-    <ul>
-      <li v-for="documento in filtroDeBusqueda" :key="documento.id">
-        <strong>Título:</strong> {{ documento.titulo }}<br>
-        <strong>Autor:</strong> {{ documento.autor }}<br>
-        <strong>Sinopsis:</strong> {{ documento.sinopsis }}<br>
-        <strong>Estantería:</strong> {{ documento.estanteria }}<br>
-        <strong>Fecha Alta:</strong> {{ documento.fecha }}
-      </li>
-    </ul>
+ <div class="row">
+    <div class="col-md-12">
+      <table class="table table-striped table-hover table-bordered">
+        <thead>
+          <tr class="table-primary">
+            <th>Título</th>
+            <th>Autor</th>
+            <th>Sinopsis</th>
+            <th>Estantería</th>
+            <th>Fecha</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="documento in filtroDeBusqueda" :key="documento.id">
+            <td>{{ documento.titulo }}</td>
+            <td>{{ documento.autor }}</td>
+            <td>{{ documento.sinopsis }}</td>
+            <td>{{ documento.estanteria }}</td>
+            <td>{{ documento.fecha }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
-</div>
 
       <!-- <Documento v-for="documento of documentos" :documento="documento">
       </Documento>  -->
