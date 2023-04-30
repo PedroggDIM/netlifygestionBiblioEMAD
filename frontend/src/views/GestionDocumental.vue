@@ -28,8 +28,10 @@ procesarFormulario() {
       return
     }
     console.log('no está vacío')
+
 this.documento.id = shortid.generate()
 console.log(this.documento.id)
+
     this.documento = {
         id: '',
         titulo: '',
@@ -42,29 +44,33 @@ console.log(this.documento.id)
   }
 }
 };
-
 </script>
 
-
 <template>
-<h4>Grabar en el sistema nuevo documento</h4>   
+<h4>Gestión de los documentos de la biblioteca (grabación, edición y borrado del catálogo)</h4>   
 <form class="mt-3" @submit.prevent="procesarFormulario">
 
    <inputDocumental :documento="documento"/>
 
+ 
   <div>
     <p>{{documento}}</p>
   </div>
-   <hr>
+<hr>
 
 </form>
-
-
 </template>
 
 <style scoped>
+h4 {
+  /* margin-top: 150px;    */
+}
+.form-control {
+ /* width: 800px;   */
+}
 p {
   margin-top: 5px; 
-  margin-bottom: 0px;  
+  margin-bottom: 0px;
+  
 }
 </style>
