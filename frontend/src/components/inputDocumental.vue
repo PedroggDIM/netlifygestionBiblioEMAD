@@ -3,7 +3,7 @@ import Calendar from 'primevue/calendar'
 import { mapState, mapActions } from 'pinia'
 import Documento from '@/views/Documento.vue'
 import { documentosStore } from '@/stores/documentos.js'
-
+import { borrarDocumento } from '@/stores/api-service.js'
 export default {
    components: {  
     Calendar, Documento  
@@ -24,6 +24,7 @@ export default {
        this.documento.sinopsis.trim() === "" ||
        this.documento.estanteria === 0 ||
        this.documento.fecha === "" ||
+       this.documento.disponible.length === 0 ||
        this.documento.categoria.length === 0)
     return true
     else {
@@ -33,7 +34,21 @@ export default {
 }, 
 methods: {
     //para get
-    ...mapActions(documentosStore, [ 'getDocumentos' ]),   
+    ...mapActions(documentosStore, [ 'getDocumentos' ]),
+    
+    borrarDocumento(documento){
+      borrarDocumento(documento).then(r => {
+        console.log(r)
+        if(r.status == 204) {
+          this.partidos.splice(this.partidos.indexOf(partido), 1)
+        }
+      })
+    },
+    guardarDocumento(documento) {
+      debugger;
+      this.$emit('guardarDocumento', documento);
+    },
+
   },    
   created() {
       this.getDocumentos()
@@ -46,7 +61,7 @@ methods: {
 <div class="container-fluid">         
   <div class="row">
     <div class="col-12 col-sm-5 fondoFormularioGraba">
-     <h5 class="margeninput">Formulario de grabación de documentos</h5>
+     <h5 class="margeninput" style="color: blue;">Formulario de grabación de documentos</h5>
      <p class="margeninput">Título</p>
        <input type="text" placeholder="Introduzca el título" class="form-control" v-model.trim="documento.titulo">
      <p class="margeninput">Autor</p>
@@ -56,7 +71,20 @@ methods: {
      <p class="margeninput">Estantería</p>
         <input type="number" placeholder="Introduzca número de estantería" class="form-control" v-model.number="documento.estanteria">
      <p class="margeninput">Fecha de alta</p>
-        <Calendar v-model.trim="documento.fecha" dateFormat="dd/MM/yy" ></Calendar> 
+        <Calendar v-model.trim="documento.fecha" dateFormat="dd/MM/yy" ></Calendar>
+
+          <div class="my-2">
+            <p class="margeninput">Indique si se encuentra disponible</p>
+            <div class="form-radio form-radio-inline">
+              <input type="radio" class="form-check-input" id="radio-1" v-model="documento.disponible" value="si">
+              <label for="check-1" class="form-check-label">Disponible Sí</label>
+            </div>
+            <div class="form-radio form-radio-inline">
+              <input type="radio" class="form-check-input" id="radio-2" v-model="documento.disponible" value="no">
+                    <label for="check-2" class="form-check-label">Disponible No</label>
+            </div>
+          </div> 
+
           <div class="my-2">
             <p class="margeninput">Seleccione el tipo de documento</p>
             <div class="form-radio form-radio-inline">
@@ -84,13 +112,16 @@ methods: {
              <p>Tipo</p>
              <input type="text" placeholder="Introduzca la duración" class="form-control" v-model.trim="documento.tipo">
             </div>
-              <button class="btn btn-dark mt-2 btn-block" type="submit" :disabled="bloquear">Guardar</button>
+
+           <!-- Botón GUARDAR -->
+              <button type="button" class="btn btn-success" @click="guardarDocumento(documento)"
+               :disabled="bloquear">Guardar</button>
+
     </div>
     <div class="col-12 col-sm-7 fondoEditElim">
-        <h5 class="margeninput">Edición/Borrado de documentos</h5><br>
-             <p>Zona para El borrado/eliminado y edidicón de documentos</p> 
-                 
-             <Documento >
+     <h5 class="margeninput" style="color: blue;">Edición/Borrado de documentos</h5><br>
+
+             <Documento  @borrarDocumento="borrarDocumento">
              </Documento>                                
     </div>             
   </div>
@@ -108,6 +139,6 @@ methods: {
 }
 .margeninput{
   margin-top: 10px;
-  margin-bottom: 0px; /* puedes ajustar este valor según tus necesidades */
+  margin-bottom: 0px; 
  } 
 </style>

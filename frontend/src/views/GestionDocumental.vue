@@ -1,6 +1,9 @@
 <script>
 import Calendar from 'primevue/calendar'
 import inputDocumental from '@/components/inputDocumental.vue'
+import { guardarDocumento } from '@/stores/api-service.js'
+import { documentosStore } from '@/stores/documentos.js'
+import { mapActions } from 'pinia'
 
 export default {
   components: {
@@ -16,11 +19,13 @@ export default {
         sinopsis: '',
         estanteria: 0,
         fecha: '',
-        categoria: [],
+        disponible: [],
+        categoria: []
         }
     }   
   },
   methods: { 
+    ...mapActions(documentosStore, ['guardarDocumento']),
 procesarFormulario() {
     console.log(this.documento)
     if(this.documento.titulo.trim() === ""){
@@ -39,9 +44,24 @@ console.log(this.documento.id)
         sinopsis: '',
         estanteria: 0,
         fecha: '',
-        categoria: [],
+        disponible: [],
+        categoria: []
     }
-  }
+  },
+ fGuardarDocumento(documento) {
+      console.log(documento);
+      debugger;
+      this.guardarDocumento(documento);
+      
+      /*.then(r => {
+        debugger;
+        if (r.status == 201) {
+          // this.documento = 
+          r.data.documentos = []
+          this.documentos.unshift(r.data)
+        }
+      });*/
+    }
 }
 };
 </script>
@@ -50,8 +70,8 @@ console.log(this.documento.id)
 <h4>Gestión de los documentos de la biblioteca (grabación, edición y borrado del catálogo)</h4>   
 <form class="mt-3" @submit.prevent="procesarFormulario">
 
-   <inputDocumental :documento="documento"/>
-
+   <!-- <inputDocumental :documento="documento" > </inputDocumental> -->
+   <inputDocumental :documento="documento" @guardarDocumento="guardarDocumento"> </inputDocumental>
  
   <div>
     <p>{{documento}}</p>
