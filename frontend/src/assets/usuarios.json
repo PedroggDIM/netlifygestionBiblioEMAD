@@ -1,24 +1,95 @@
 {
-    "usuario": [  
-   {    "id": 1,    "nombre": "Juan",    "apellidos": "Pérez García",    "telefono": "632255418"  },
-   {    "id": 2,    "nombre": "María",    "apellidos": "González Torres",    "telefono": "632255874"  }, 
-   {    "id": 3,    "nombre": "Luis",    "apellidos": "Hernández Sánchez",    "telefono": "365522487"  },
-   {    "id": 4,    "nombre": "Ana",    "apellidos": "Martínez López",    "telefono": "654488741"  }, 
-   {    "id": 5,    "nombre": "Pedro",    "apellidos": "Ramírez Vázquez",    "telefono": "632255478"  },
-   {    "id": 6,    "nombre": "Marta",    "apellidos": "Fernández Jiménez",    "telefono": "632255874"  }, 
-   {    "id": 7,    "nombre": "Javier",    "apellidos": "Gómez Castro",    "telefono": "652288441"  }, 
-   {    "id": 8,    "nombre": "Carmen",    "apellidos": "López García",    "telefono": "632211487"  },  
-   {    "id": 9,    "nombre": "Antonio",    "apellidos": "García Pérez",    "telefono": "699933222"  },  
-   {    "id": 10,    "nombre": "Lucía",    "apellidos": "Sánchez Torres",    "telefono": "652288741"  },
-   {    "id": 11,    "nombre": "Davíd",    "apellidos": "García García",    "telefono": "688855418"  },
-   {    "id": 12,    "nombre": "Jon",    "apellidos": "Gorri Torres",    "telefono": "699955874"  }, 
-   {    "id": 13,    "nombre": "Santiago",    "apellidos": "Gil Giles",    "telefono": "666522487"  },
-   {    "id": 14,    "nombre": "Lili",    "apellidos": "Ginés Ginés",    "telefono": "632588741"  }, 
-   {    "id": 15,    "nombre": "Sandra",    "apellidos": "Vali Ener",    "telefono": "623155478"  },
-   {    "id": 16,    "nombre": "Luna",    "apellidos": "Fernán Lien",    "telefono": "632555874"  }, 
-   {    "id": 17,    "nombre": "Leiva",    "apellidos": "Garcí Castro",    "telefono": "632588441"  }, 
-   {    "id": 18,    "nombre": "Carla",    "apellidos": "Alen Dren",    "telefono": "632511487"  },  
-   {    "id": 19,    "nombre": "Alejandro",    "apellidos": "Gar Pérez",    "telefono": "663213222"  },  
-   {    "id": 20,    "nombre": "Lucí",    "apellidos": "Sánchez Sánchez",    "telefono": "699338741"  }
-  ]
+  "usuario": [
+      {
+          "username": "juanpg",
+          "nombre": "Juan",
+          "apellidos": "Pérez García",
+          "telefono": "632255",
+          "correo_electronico": "juanpg@example.com"
+      },
+      {
+          "username": "mariagt",
+          "nombre": "María",
+          "apellidos": "González Torres",
+          "telefono": "632255",
+          "correo_electronico": "mariagt@example.com"
+      },
+      {
+          "username": "luishs",
+          "nombre": "Luis",
+          "apellidos": "Hernández Sánchez",
+          "telefono": "365522",
+          "correo_electronico": "luishs@example.com"
+      },
+      {
+          "username": "anaml",
+          "nombre": "Ana",
+          "apellidos": "Martínez López",
+          "telefono": "654488",
+          "correo_electronico": "anaml@example.com"
+      },
+      {
+          "username": "pedrorv",
+          "nombre": "Pedro",
+          "apellidos": "Ramírez Vázquez",
+          "telefono": "632255",
+          "correo_electronico": "pedrorv@example.com"
+      },
+      {
+          "username": "martafj",
+          "nombre": "Marta",
+          "apellidos": "Fernández Jiménez",
+          "telefono": "632255",
+          "correo_electronico": "martafj@example.com"
+      },
+      {
+          "username": "javiergc",
+          "nombre": "Javier",
+          "apellidos": "Gómez Castro",
+          "telefono": "652288",
+          "correo_electronico": "javiergc@example.com"
+      },
+      {
+          "username": "carmenlg",
+          "nombre": "Carmen",
+          "apellidos": "López García",
+          "telefono": "632211",
+          "correo_electronico": "carmenlg@example.com"
+      },
+      {
+          "username": "antoniogp",
+          "nombre": "Antonio",
+          "apellidos": "García Pérez",
+          "telefono": "699933",
+          "correo_electronico": "antoniogp@example.com"
+      },
+      {
+          "username": "luciat",
+          "nombre": "Lucía",
+          "apellidos": "Sánchez Torres",
+          "telefono": "652288",
+          "correo_electronico": "luciat@example.com"
+      },
+      {
+          "username": "davidgg",
+          "nombre": "Davíd",
+          "apellidos": "García García",
+          "telefono": "688855",
+          "correo_electronico": "davidgg@example.com"
+      },
+      {
+          "username": "jongt",
+          "nombre": "Jon",
+          "apellidos": "Gorri Torres",
+          "telefono": "699955",
+          "correo_electronico": "jongt@example.com"
+      },
+      {
+          "username": "santiagog",
+          "nombre": "Santiago",
+          "apellidos": "Gil Giles",
+          "telefono": "666522",
+          "correo_electronico": "santiagog@example.com"
+      } ]
 }     
+
