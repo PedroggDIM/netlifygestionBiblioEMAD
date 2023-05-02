@@ -42,10 +42,10 @@ export default {
       />
           <h5 class="d-none d-md-block">
             Biblioteca del EMAD. Consulta del catálogo.
-          </h5>
-         <br/>
+          </h5><br>
+         <!-- <br/>
            <h5>Consultar mis préstamos:  <button class="btn btn-lg btn-primary" type="button">Mis préstamos</button></h5>
-        <br/>
+         <br/> -->
 
   <div class="row">
       <div class="row">
@@ -107,8 +107,7 @@ export default {
         </tbody>
       </table>
     </div>
-  </div>
-  
+  </div>  
         <!-- <h5>Consultar mis préstamos</h5>
         <p class="d-none d-md-block">Botón mis préstamos</p> 
 
