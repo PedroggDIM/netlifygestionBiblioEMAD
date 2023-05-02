@@ -34,16 +34,41 @@ export default {
 }, 
 methods: {
     //para get
-    ...mapActions(documentosStore, [ 'getDocumentos' ]),
+    ...mapActions(documentosStore, [ 'getDocumentos', 'eliminarDocumento']),
     
     borrarDocumento(documento){
-      borrarDocumento(documento).then(r => {
+      debugger;
+      this.eliminarDocumento(documento).then(r => {
         console.log(r)
         if(r.status == 204) {
-          this.partidos.splice(this.partidos.indexOf(partido), 1)
+          this.getDocumentos();
         }
       })
     },
+
+    editarDocumento(documento){
+      debugger;
+      this.documento.id = documento.id;
+      this.documento.titulo = documento.titulo;
+      this.documento.autor = documento.autor;
+      this.documento.sinopsis = documento.sinopsis;
+      this.documento.estanteria = documento.estanteria;
+      this.documento.fecha = documento.fecha;
+      if(documento.disponible != null && documento.disponible !== ''){
+        this.documento.disponible = documento.disponible.toLowerCase();
+      }
+      if(documento.categoria != null && documento.categoria !== ''){
+        this.documento.categoria = documento.categoria.toLowerCase();
+      }     
+      this.documento.isbn = documento.isbn;
+      this.documento.numpag = documento.numpag;
+      this.documento.tamanio = documento.tamanio;
+
+      this.documento.isan = documento.isan;
+      this.documento.duracion = documento.duracion;
+      this.documento.tipo = documento.tipo;      
+    },
+    
     guardarDocumento(documento) {
       debugger;
       this.$emit('guardarDocumento', documento);
@@ -51,7 +76,7 @@ methods: {
 
   },    
   created() {
-      this.getDocumentos()
+      this.getDocumentos();
   }
 };  
 
@@ -121,7 +146,7 @@ methods: {
     <div class="col-12 col-sm-7 fondoEditElim">
      <h5 class="margeninput" style="color: blue;">Edición/Borrado de documentos</h5><br>
 
-             <Documento  @borrarDocumento="borrarDocumento">
+             <Documento  @borrarDocumento="borrarDocumento" @editarDocumento="editarDocumento">
              </Documento>                                
     </div>             
   </div>
@@ -135,7 +160,7 @@ methods: {
   border-radius: 3px; 
 }
 .fondoEditElim {
-  background-color: #D5D8DC ; 
+  background-color: #D6EAF8 ; 
 }
 .margeninput{
   margin-top: 10px;

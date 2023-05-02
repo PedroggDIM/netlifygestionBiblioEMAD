@@ -89,7 +89,8 @@ export default {
             <th>Autor</th>
             <th>Sinopsis</th>
             <th>Estantería</th>
-            <th>Fecha</th>
+            <th>Fecha alta</th>
+            <th>Disponible</th>
             <th>Categoría</th>
           </tr>
         </thead>
@@ -100,6 +101,7 @@ export default {
             <td>{{ documento.sinopsis }}</td>
             <td>{{ documento.estanteria }}</td>
             <td>{{ documento.fecha }}</td>
+            <td>{{ documento.disponible }}</td>
             <td>{{ documento.categoria }}</td>
           </tr>
         </tbody>
@@ -126,6 +128,3 @@ export default {
   
 }
 </style>
-
-
-

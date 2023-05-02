@@ -12,6 +12,7 @@ const host = 'https://biblioteca-26bb6-default-rtdb.europe-west1.firebasedatabas
 // return axios.request(config)
 // }
 export function llamadaApi(path, method, body) {
+  debugger;
   let config = {
     method: method,    
     maxBodyLength: Infinity,
@@ -34,7 +35,8 @@ export function guardarDocumento(documento) {
   
 }
 export function borrarDocumento(documento) {
-  return llamadaApi(documento, 'delete') // con la api poner la url tipo: (documento._links.self.href.replace('http', 'https'), 'delete')
+  debugger;
+  return llamadaApi(`${host}/documentos`, 'delete', documento.id) // con la api poner la url tipo: (documento._links.self.href.replace('http', 'https'), 'delete')
 }
 
 export function getEntidades(nombre) {

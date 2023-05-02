@@ -25,7 +25,7 @@ export default {
     }   
   },
   methods: { 
-    ...mapActions(documentosStore, ['guardarDocumento']),
+    ...mapActions(documentosStore, ['guardarDocumento', 'getDocumentos']),
 procesarFormulario() {
     console.log(this.documento)
     if(this.documento.titulo.trim() === ""){
@@ -51,16 +51,13 @@ console.log(this.documento.id)
  fGuardarDocumento(documento) {
       console.log(documento);
       debugger;
-      this.guardarDocumento(documento);
-      
-      /*.then(r => {
+    
+      this.guardarDocumento(documento).then(r => {
         debugger;
-        if (r.status == 201) {
-          // this.documento = 
-          r.data.documentos = []
-          this.documentos.unshift(r.data)
+        if (r.status == 200) {
+          this.getDocumentos();
         }
-      });*/
+      });
     }
 }
 };
@@ -71,7 +68,7 @@ console.log(this.documento.id)
 <form class="mt-3" @submit.prevent="procesarFormulario">
 
    <!-- <inputDocumental :documento="documento" > </inputDocumental> -->
-   <inputDocumental :documento="documento" @guardarDocumento="guardarDocumento"> </inputDocumental>
+   <inputDocumental :documento="documento" @guardarDocumento="fGuardarDocumento"> </inputDocumental>
  
   <div>
     <p>{{documento}}</p>
