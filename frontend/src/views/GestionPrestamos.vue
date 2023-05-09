@@ -3,10 +3,11 @@ import Calendar from 'primevue/calendar'
 import Prestamo from '@/views/Prestamo.vue'
 import { mapState, mapActions } from 'pinia'
 import { prestamosStore } from '@/stores/prestamos.js'
+import DocumentoPrestamo from '@/views/DocumentoPrestamo.vue'
 
 export default {
    components: { Prestamo,
-    Calendar, },
+    Calendar, DocumentoPrestamo, },
    data() {
     return {
      // El nombre, apellido y email ls rellena el usuario que realiza la reserva.
@@ -29,7 +30,25 @@ export default {
 
   },
   methods: {
-     ...mapActions(prestamosStore, [ 'getPrestamos']),   
+     ...mapActions(prestamosStore, [ 'getPrestamos']),  
+     
+     editarPrestamo(documento) {
+      debugger;
+
+      if (documento.categoria === 'escrito') {
+        this.prestamo.idDocumento = documento.isbn;
+        this.prestamo.categoria = 'escrito';
+      } else {
+        this.prestamo.idDocumento = documento.isan;
+        this.prestamo.categoria = 'audiovisual';
+      }
+
+      this.prestamo.titulo = documento.titulo;
+      this.prestamo.autor = documento.autor;
+
+      this.prestamo.fechaInicio = '';
+      this.prestamo.fechaFin = '';
+    },
   },    
   created() {
        this.getPrestamos()
