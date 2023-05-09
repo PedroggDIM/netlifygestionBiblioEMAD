@@ -18,7 +18,7 @@ Además se espera que la aplicación permita consultas avanzadas que proporcione
 
 **Cumplimiento de requisitos**
 - 1. **Herencia**: Se realizará sobre `Documento` y sus subtipos: `Escrito`, `Audiovisual`.
-- 2. **Relación One-To-Many**: Relación entre `Prestamo` y `Documento`.`Un sólo préstamo puede incluir varios documentos.
+- 2. **Relación One-To-Many**: Relación entre `Prestamo` y `Documento`.`Un solo documento puede tener uno o varios préstamos.
 - 3. **Método personalizado**: Obtener los documentos más utilizados entre dos fechas determinadas con le objetivo de adquirir nuevas copias.
 - 4. **Listado**: Se mostrarán los préstamos de un usuario y los de cada documento indicando además los documentos que no se hayan utilizado.
 - 5. **CRUD**: Se usarán los controles adecuados para hacer el CRUD. Se usará los siguientes formularios.
