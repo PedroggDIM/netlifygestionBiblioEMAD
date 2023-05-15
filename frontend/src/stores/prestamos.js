@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { getPrestamos, guardarPrestamo } from '@/stores/api-service_prestamos.js'
+import { getPrestamos, guardarPrestamo } from './api-service_prestamos'
 
 export const prestamosStore = defineStore('prestamos', {
   state: () => ({
@@ -7,19 +7,22 @@ export const prestamosStore = defineStore('prestamos', {
   }),
   actions: {
     async getPrestamos() {
-      await getPrestamos().then(r => this.prestamos = r.data._embedded.prestamo)
+      await getPrestamos().then(r =>{
+        debugger;
+        this.prestamos = r.data._embedded.prestamoModels;
+      });
 
     },
     getPrestamosPorId(id) {
       return this.prestamos.find(p => p.id == id)
     },
     guardarPrestamo(prestamo) {
-      if (prestamo.id == null || prestamo.id === '') {
+      debugger;
+      if (prestamo.idDocumento != null || prestamo.idDocumento !== '') {
         this.prestamos.push(prestamo);
       }
       debugger;
       return guardarPrestamo(prestamo);
-
     },
 
   }

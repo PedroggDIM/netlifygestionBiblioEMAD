@@ -1,6 +1,5 @@
 import { defineStore } from 'pinia'
-import { getDocumentos } from './api-service'
-import axios from 'axios'
+import { getDocumentos, guardarDocumento, borrarDocumento } from './api-service'
 
 export const documentosStore = defineStore('documentos', {
   state: () => ({
@@ -8,11 +7,27 @@ export const documentosStore = defineStore('documentos', {
   }),
   actions: {
     async getDocumentos() {
-      await getDocumentos().then(r => this.documentos = r.data._embedded.documento)
- 
+      debugger;
+      await getDocumentos().then(r => {
+        debugger;
+        this.documentos = r.data._embedded.documentoModels
+      });
+
     },
     getDocumentosPorId(id) {
       return this.documentos.find(p => p.id == id)
+    },
+    guardarDocumento(documento) {
+      if (documento.id != null || documento.id !== '') {
+        this.documentos.push(documento);
+      }
+      debugger;
+      return guardarDocumento(documento);
+
+    },
+
+    eliminarDocumento(documento) {
+      return borrarDocumento(documento);
     }
   }
 })

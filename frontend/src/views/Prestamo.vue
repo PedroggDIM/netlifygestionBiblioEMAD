@@ -5,24 +5,27 @@ import { prestamosStore } from "@/stores/prestamos.js";
 
 export default {
   props: ["prestamo"],
-  emits: ["borrarPrestamo"],
+  emits: ["editarPrestamo"],
   data() {
     return {
       busquedaTitulo: "",
     };
   },
-  computed: {
-    ...mapState(prestamosStore, ["prestamos"]),
-    filtroDeBusqueda() {
-      const filtroDePrestamos = this.prestamos.filter((prestamo) =>
-        prestamo.titulo
-          .toLowerCase()
-          .includes(this.busquedaTitulo.toLowerCase())
-      );
-      //  return filtroDeDocumentos.slice(0, 4);
-      return filtroDePrestamos;
-    },
+ computed: {
+  ...mapState(prestamosStore, ["prestamos"]),
+  filtroDeBusquedaTitulo() {
+   if (this.busquedaTitulo === "") {
+    return this.prestamos.slice(0, 5);
+  } else {
+    return this.prestamos.filter((prestamo) => {
+      if (prestamo.documento && prestamo.documento.titulo) {
+        return prestamo.documento.titulo.toLowerCase().includes(this.busquedaTitulo.toLowerCase());
+      }
+      return false;
+    }).slice(0, 5);
+    }
   },
+},
   methods: {
     confirmarBorrado(prestamo) {
       debugger;
@@ -40,38 +43,27 @@ export default {
 </script>
 
 <template>
-  <h5>Buscar por Título</h5>
-  <input v-model="busquedaTitulo" type="text" placeholder="Buscar por Título (introduzca el Título)" class="form-control mb-3"/>
 
-  <div v-for="prestamo in filtroDeBusqueda" :key="prestamo.id" class="card m-0 p-0">
-    <div class="card-header text-primary">
-      <strong>Título: </strong>{{ prestamo.titulo }}
-    </div>
-    <div class="card-body">
-      <div class="contenedor d-flex justify-content-end">
-        <!-- Botón editar -->    
-        <!-- <button type="button" class="btn btn-warning" @click="editarPrestamo(prestamo)">Editar</button> -->
+ <!-- <div v-for="prestamo of prestamos">Campos que llegan de préstamo:   {{ prestamo }}  </div>  -->
+    <h5 style="color: blue;">Buscar por Título</h5>
+    <input v-model="busquedaTitulo" type="text" placeholder="Buscar por Título (introduzca el Título)" class="form-control mb-3"/>
+
+    <div v-for="prestamo in filtroDeBusquedaTitulo" :key="prestamo.id" class="card mb-3">
+      <div class="card-body bg-light">
+        <div class="d-flex justify-content-end">
+          <button type="button" class="btn btn-warning" @click="editarPrestamo(prestamo)">Editar</button>
+        </div> 
+        <p class="mb-0"><strong>Número de préstamo (id): </strong>{{ prestamo.id }}</p>        
+        <p class="mb-0"><strong>Id Usuario: </strong>{{ prestamo.idUsuario }}</p>  
+             <!-- <p class="mb-0"><strong>Titulo: </strong>{{ prestamo.documento ? prestamo.documento.titulo : '' }}</p> -->
+        <p class="mb-0"><strong>Título: </strong>{{ prestamo.documento.titulo}}</p>
+        <p class="mb-0"><strong>Fecha Inicio Préstamo: </strong>{{ prestamo.fechaInicio }}</p> 
+        <p class="mb-0"><strong>Fecha Fin Préstamo: </strong>{{ prestamo.fechaFin }}</p>   
       </div>
+    </div> 
 
-      <p class="mb-0"><strong>Id Préstamo: </strong>{{ prestamo.idPrestamo }}</p>
-      <p class="mb-0"><strong>Autor Obra: </strong>{{ prestamo.autor }}</p>
-      <p class="mb-0"><strong>Categoria: </strong>{{ prestamo.categoria}}</p>
-      <p class="mb-0"><strong>Id Usuario: </strong>{{ prestamo.idUsuario }}</p>
-      <p class="mb-0"><strong>Nombre Usuario: </strong>{{ prestamo.nombre }}</p>
-      <p class="mb-0"><strong>Apellidos Usuario: </strong>{{ prestamo.apellidos }}</p>
-      <p class="mb-0"><strong>Fecha Inicio Préstamo: </strong>{{ prestamo.fechaInicio }}</p>   
-      <p class="mb-0"><strong>Fecha Fin Préstamo: </strong>{{ prestamo.fechaFin }}</p>    
-
-    </div>
-  </div>
 </template>
 
 <style>
-.contenedor button {
-  margin-top: 0;
-  margin-bottom: 0;
-  padding-top: 0;
-  padding-bottom: 0;
-  margin-right: 10px;
-}
+  
 </style>

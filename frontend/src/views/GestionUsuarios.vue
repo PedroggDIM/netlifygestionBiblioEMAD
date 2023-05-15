@@ -15,9 +15,7 @@ export default {
 
 
 <template> 
-   <!-- <div>
-     <div v-for="usuario of usuarios"> {{usuario.nombre}}  </div>
-   </div> -->
+ 
 <div class="container" id="user"> 
   <h4>Usuarios de la aplicación</h4>
   <div class="row">

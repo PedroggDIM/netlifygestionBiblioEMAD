@@ -14,13 +14,14 @@ export default {
   computed: {
     ...mapState(documentosStore, ["documentos"]),
     filtroDeBusqueda() {
+      debugger
       const filtroDeDocumentos = this.documentos.filter((documento) =>
         documento.titulo
           .toLowerCase()
           .includes(this.busquedaTitulo.toLowerCase())
       );
-      //  return filtroDeDocumentos.slice(0, 4);
-      return filtroDeDocumentos;
+        return filtroDeDocumentos.slice(0, 3);
+     // return filtroDeDocumentos;
     },
   },
   methods: {
@@ -40,11 +41,12 @@ export default {
 </script>
 
 <template>
-  <h5>Buscar por Título</h5>
+  <h5>Buscar por Título</h5>  
   <input v-model="busquedaTitulo" type="text" placeholder="Buscar por Título (introduzca el Título)" class="form-control mb-3"/>
 
   <div v-for="documento in filtroDeBusqueda" :key="documento.id" class="card m-0 p-0">
     <div class="card-header text-primary">
+    
       <strong>Título: </strong>{{ documento.titulo }}
     </div>
     <div class="card-body">
@@ -52,26 +54,24 @@ export default {
         <!-- Botones de borrar y editar -->
         <button type="button" class="btn btn-danger" @click="confirmarBorrado(documento)">Borrar</button>
         <button type="button" class="btn btn-warning" @click="editarDocumento(documento)">Editar</button>
-      </div>
-
+      </div>      
       <p class="mb-0"><strong>ID: </strong>{{ documento.id }}</p>
       <p class="mb-0"><strong>Autor: </strong>{{ documento.autor }}</p>
       <p class="mb-0"><strong>Sinopsis: </strong>{{ documento.sinopsis }}</p>
       <p class="mb-0"><strong>Estantería: </strong>{{ documento.estanteria }}</p>
-      <p class="mb-0"><strong>Fecha alta: </strong>{{ documento.fecha }}</p>
+      <p class="mb-0"><strong>Fecha alta: </strong>{{ documento.fechaAlta }}</p>
       <p class="mb-0"><strong>Disponible: </strong>{{ documento.disponible }}</p>
       <p class="mb-0"><strong>Categoría: </strong>{{ documento.categoria }}</p>     
       <div v-if="documento.categoria === 'escrito'">
        <p class="mb-0"><strong>ISBN: </strong>{{ documento.isbn }}</p>
-       <p class="mb-0"><strong>Número de páginas: </strong>{{ documento.numpag }}</p>
-       <p class="mb-0"><strong>Tamaño: </strong>{{ documento.tamanio }}</p>
+       <p class="mb-0"><strong>Número de páginas: </strong>{{ documento.numPaginas }}</p>
+       <p class="mb-0"><strong>Tamaño: </strong>{{ documento.tamano }}</p>
       </div>  
       <div v-if="documento.categoria === 'audiovisual'">
        <p class="mb-0"><strong>ISAN: </strong>{{ documento.isan }}</p>
        <p class="mb-0"><strong>Duración en minutos: </strong>{{ documento.duracion }}</p>
        <p class="mb-0"><strong>Tipo: </strong>{{ documento.tipo }}</p>
       </div> 
-
     </div>
   </div>
 </template>

@@ -15,16 +15,18 @@ export default {
  computed: {
     ...mapState(documentosStore, ['documentos']),    
     filtroDeBusqueda() {
-  const filtroDeDocumentos = this.documentos.filter((documento) =>
-    documento.titulo.toLowerCase().includes(this.busquedaTitulo.toLowerCase()) &&
+      debugger;
+    
+  const filtroDeDocumentos = this.documentos.filter((documento) => {
+   return documento.titulo.toLowerCase().includes(this.busquedaTitulo.toLowerCase()) &&
     documento.autor.toLowerCase().includes(this.busquedaPorAutor.toLowerCase()) &&
-    documento.sinopsis.toLowerCase().includes(this.buscaSinopsis.toLowerCase())
-  );
-  return filtroDeDocumentos.slice(0, 6);
+    documento.sinopsis.toLowerCase().includes(this.buscaSinopsis.toLowerCase()) 
+  });
+  return filtroDeDocumentos.slice(0, 10);
 },
   },
   methods: {
-    //para get
+    //para  el get
     ...mapActions(documentosStore, [ 'getDocumentos' ]),   
   },    
   created() {
@@ -35,21 +37,12 @@ export default {
 
 <template>
       
-       <img
-        src="src/assets/logo_app_lite.png"
-        class="img-fluid"
-        alt="Descripción de la imagen"
-      />
-          <h5 class="d-none d-md-block">
-            Biblioteca del EMAD. Consulta del catálogo.
-          </h5><br>
-         <!-- <br/>
-           <h5>Consultar mis préstamos:  <button class="btn btn-lg btn-primary" type="button">Mis préstamos</button></h5>
-         <br/> -->
-
+  <img src="../assets/logo_app_lite.png" class="img-fluid" alt="icono EMAD"/>
+    <h5 class="d-none d-md-block">
+      Biblioteca del EMAD. Consulta del catálogo.
+    </h5><br>
   <div class="row">
-      <div class="row">
-      
+  <div class="row">      
   <div class="col-md-4 mb-3">
   <h5>Buscar por Título</h5>
     <input
@@ -84,7 +77,7 @@ export default {
     <div class="col-md-12">
       <table class="table table-striped table-hover table-bordered">
         <thead>
-          <tr class="table-primary">
+          <tr class="table-primary">     
             <th>Título</th>
             <th>Autor</th>
             <th>Sinopsis</th>
@@ -95,30 +88,20 @@ export default {
           </tr>
         </thead>
         <tbody>
-          <tr v-for="documento in filtroDeBusqueda" :key="documento.id">
+          <tr v-for="documento in filtroDeBusqueda" :key="documento.id">      
             <td>{{ documento.titulo }}</td>
             <td>{{ documento.autor }}</td>
             <td>{{ documento.sinopsis }}</td>
             <td>{{ documento.estanteria }}</td>
-            <td>{{ documento.fecha }}</td>
+            <td>{{ documento.fechaAlta }}</td>
             <td>{{ documento.disponible }}</td>
             <td>{{ documento.categoria }}</td>
           </tr>
         </tbody>
       </table>
     </div>
-  </div>  
-        <!-- <h5>Consultar mis préstamos</h5>
-        <p class="d-none d-md-block">Botón mis préstamos</p> 
-
-          <h4>Documentos/Elementos audiovisuales disponibles</h4>   
-          <span>Esto lo pinta home</span>          
-      <div v-for="documento of documentos">{{ documento.titulo }} - {{ documento.autor }} - {{ documento.sinopsis }}
-                                          - {{ documento.estanteria }} - {{ documento.fecha }} - {{ documento.sinopsis }}</div> -->
-                                          
-      <!-- <Documento v-for="documento of documentos" :documento="documento">
-      </Documento>  -->
-
+  </div>                                          
+      <!-- <Documento v-for="documento of documentos" :documento="documento"> </Documento>  -->
 </template>
 
 <style scoped>

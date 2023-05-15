@@ -18,7 +18,7 @@ export default {
         autor: '',
         sinopsis: '',
         estanteria: 0,
-        fecha: '',
+        fechaAlta: '',
         disponible: [],
         categoria: []
         }
@@ -43,7 +43,7 @@ console.log(this.documento.id)
         autor: '',
         sinopsis: '',
         estanteria: 0,
-        fecha: '',
+        fechaAlta: '',
         disponible: [],
         categoria: []
     }
@@ -54,9 +54,17 @@ console.log(this.documento.id)
     
       this.guardarDocumento(documento).then(r => {
         debugger;
-        if (r.status == 200) {
-          this.getDocumentos();
-        }
+        this.getDocumentos();
+        //limpio los campos          
+  this.documento.id = '';
+  this.documento.titulo = '';
+  this.documento.autor = '';
+  this.documento.sinopsis = '';
+  this.documento.estanteria = 0;
+  this.documento.fechaAlta = '';
+  this.documento.disponible = [];
+  this.documento.categoria = [];
+  
       });
     }
 }
@@ -79,15 +87,9 @@ console.log(this.documento.id)
 </template>
 
 <style scoped>
-h4 {
-  /* margin-top: 150px;    */
-}
-.form-control {
- /* width: 800px;   */
-}
+
 p {
   margin-top: 5px; 
-  margin-bottom: 0px;
-  
+  margin-bottom: 0px;  
 }
 </style>

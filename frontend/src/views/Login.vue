@@ -13,7 +13,7 @@ const { cambiarNivel } = auth
 			<div class="card-body">
       <div class="row align-items-center">
       <div class="header-text mb-4">
-        <img src="src/assets/logo_app_lite.png" alt="emd" />   
+        <img src="../assets/logo_app_lite.png" alt="emd" />   
 				<h3 class="text-center">Iniciar sesión</h3>                   
       </div>
       <div class="input-group mb-3">

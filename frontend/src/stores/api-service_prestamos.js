@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const host = 'https://prestamos-3afac-default-rtdb.europe-west1.firebasedatabase.app/'
+const host = 'https://apirestbiblioemad-pedroggsegosego.b4a.run/api'
 
 export function llamadaApi(path, method, body) {
   debugger;
@@ -10,7 +10,7 @@ export function llamadaApi(path, method, body) {
     url: path,
     headers: {}
   }
-  if(body) {
+  if(body) {   
     config.data = body,
     config.headers['Content-Type'] = 'application/json'
   }
@@ -19,11 +19,11 @@ return axios.request(config)
 
 export function guardarPrestamo(prestamo) {
   debugger;
-   return llamadaApi(`${host}/`, 'post', prestamo)  
+   return llamadaApi(`${host}/prestamos`, 'post', prestamo);
 }
 
 export function getEntidades(nombre) {
-  return llamadaApi(`${host}/${nombre}.json`,'get')
+  return llamadaApi(`${host}/${nombre}`,'get')
 }
 export function getPrestamos() {
   return getEntidades('prestamos')
